@@ -14,6 +14,17 @@ import jakarta.servlet.http.HttpServletRequest;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 	
+	@ExceptionHandler(TodoNotExistingException.class)
+	public ResponseEntity<ErrorMessage> handleReposityEmptyException(TodoNotExistingException ex, HttpServletRequest request){
+		ErrorMessage error = new ErrorMessage(
+				LocalDateTime.now(),
+				HttpStatus.BAD_REQUEST.value(),
+				"Conflict",
+				ex.getMessage(),
+				request.getRequestURI());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+	}
+	
 	@ExceptionHandler(TodoExiste.class)
 	public ResponseEntity<ErrorMessage> handleTodoExisteException(TodoExiste ex, HttpServletRequest request){
 		ErrorMessage error = new ErrorMessage(
