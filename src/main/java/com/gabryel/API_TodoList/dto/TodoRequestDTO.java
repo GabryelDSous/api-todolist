@@ -3,6 +3,7 @@ package com.gabryel.API_TodoList.dto;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class TodoRequestDTO {
 	
@@ -14,11 +15,11 @@ public class TodoRequestDTO {
 	
 	@Min(1)
 	@Max(10)
-	@NotBlank
-	private int prioridade;
+	@NotNull
+	private Integer prioridade;
 	
-	@NotBlank
-	private boolean realizado;
+	@NotNull
+	private Boolean realizado;
 
 	public String getNomeTarefa() {
 		return nomeTarefa;

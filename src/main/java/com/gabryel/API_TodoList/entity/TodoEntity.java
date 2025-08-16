@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "todolist")
@@ -25,11 +26,11 @@ public class TodoEntity {
 	
 	@Min(1)
 	@Max(10)
-	@NotBlank
-	private int prioridade;
+	@NotNull
+	private Integer prioridade;
 	
-	@NotBlank
-	private boolean realizado;
+	@NotNull
+	private Boolean realizado;
 
 	public TodoEntity() {}
 
